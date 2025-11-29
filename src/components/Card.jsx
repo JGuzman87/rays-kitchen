@@ -3,12 +3,24 @@ import Image from "next/image";
 
 const Card = ({ mealName, imgUrl, price }) => {
   return (
-    <div className="card w-sm  shadow-2xl bg-white">
+    <div className="card shadow-2xl bg-white gap-2">
+      <figure>
+        <Image
+          className="items-center"
+          alt="image of food items"
+          src={imgUrl}
+          width={400}
+          height={400}
+        />
+      </figure>
       <div className="card-body">
-        <p className="font-bold text-center">{mealName}</p>
-        <Image className="items-center" alt="image of food items"src={imgUrl} width={500} height={500} />
+        <h1 className="text-lg font-bold">{mealName}</h1>
         <p>{price}</p>
-        <button type="button" className="btn btn-success">add to cart</button>
+        <div className="card-actions justify-end">
+          <button type="button" className="btn btn-success">
+            add to cart
+          </button>
+        </div>
       </div>
     </div>
   );

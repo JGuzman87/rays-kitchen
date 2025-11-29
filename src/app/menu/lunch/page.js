@@ -7,7 +7,7 @@ const LunchMenuPage = () => {
       <h1 className="font-bold text-center text-5xl font-mono bg-white w-fit self-center">
         Lunch Menu
       </h1>
-      <div className="grid md:grid-cols-3 gap-2">
+      <div className="grid md:grid-cols-4 gap-2 p-1">
         <Card
           mealName="Arroz Con Guandules"
           imgUrl="/arroz-guandules.png"
