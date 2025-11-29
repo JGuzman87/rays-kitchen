@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col gap-1">
-      <div className="bg-amber-800/70 flex flex-col gap-8 p-4 text-white bg-blend-overlay font-mono rounded-2xl">
+      <div className="bg-amber-800/70  flex flex-col gap-8 p-4 backdrop-blur-xs text-white bg-blend-overlay font-mono rounded-2xl">
         <h2 className="text-2xl font-bold p-2 underline">
           Welcome to Ray's Kitchen
         </h2>

@@ -18,7 +18,7 @@ const Card = ({ mealName, imgUrl, price }) => {
     <div className="card shadow-2xl bg-white gap-2">
       <figure>
         <Image
-          className="w-full h-48 object-cover p-1"
+          className="w-full h-48 object-cover rounded-t-2xl p-1"
           alt="image of food items"
           src={imgUrl}
           width={400}

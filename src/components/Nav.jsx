@@ -48,7 +48,8 @@ const Nav = () => {
           </ul>
         </div>
         <Link href={"/"}>
-          <h2 className="font-serif font-bold text-2xl">Rays Kitchen 🇵🇷</h2>
+        <img src='/logo.png' alt="logo" className='w-20'/>
+        
         </Link>
       </div>
 
