@@ -1,4 +1,4 @@
-
+import Providers from "./Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
@@ -16,13 +16,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body
-        className={`antialiased flex flex-col min-h-screen`}
-      >
-        <Nav />
-        <div className="p-4">{children}</div>
+      <body className={`antialiased flex flex-col min-h-screen`}>
+        <Providers>
+          <Nav />
+          <div className="p-4">{children}</div>
 
-        <Footer />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

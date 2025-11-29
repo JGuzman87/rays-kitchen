@@ -1,10 +1,12 @@
 "use client"
+import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
 import React from 'react'
 
 
 
 const Nav = () => {
+  const { count } = useCount();
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -88,7 +90,7 @@ const Nav = () => {
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary">0</span>
+          <span className="indicator-item badge badge-secondary">{count}</span>
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"

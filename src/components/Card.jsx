@@ -1,13 +1,18 @@
 "use client"
-import {useState} from "react";
+import {useCount} from "@/context/CountContext";
 import Image from "next/image";
+
+
+
 
 const Card = ({ mealName, imgUrl, price }) => {
 
-  const [count, setCount ] = useState(0);
+  const { addCount } = useCount();
 
   const handleClick = () => {
-    setCount(num => num + 1);
+  
+    addCount();
+   
   }
   return (
     <div className="card shadow-2xl bg-white gap-2">
