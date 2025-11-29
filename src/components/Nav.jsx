@@ -2,11 +2,12 @@
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
 import React from 'react'
-import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 
 const Nav = () => {
   const { count } = useCount();
+  const router = useRouter();
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start ">
@@ -86,14 +87,14 @@ const Nav = () => {
             </ul>
           </li>
           <li>
-            <Link href={"/order"}>Order Online</Link>
+            <Link href={"/order"}>Orders</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
           <span className="indicator-item badge badge-secondary">{count}</span>
-          <button className="btn btn-ghost btn-circle">
+          <button className="btn btn-ghost btn-circle" onClick={() => router.push('/order')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

@@ -1,5 +1,6 @@
 "use client"
 import {useCount} from "@/context/CountContext";
+import { useState } from 'react';
 import Image from "next/image";
 
 
@@ -7,11 +8,15 @@ import Image from "next/image";
 
 const Card = ({ mealName, imgUrl, price }) => {
 
+  const [lunchItem, setLunchItem ] = useState([])
   const { addCount } = useCount();
 
   const handleClick = () => {
   
+    const storedLunch = localStorage.setItem('lunch', JSON.stringify(lunchItem));
+    
     addCount();
+
    
   }
   return (
