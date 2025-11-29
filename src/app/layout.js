@@ -15,11 +15,11 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="caramellatte">
       <body className={`antialiased flex flex-col min-h-screen`}>
         <Providers>
           <Nav />
-          <div className="p-4">{children}</div>
+          <div className="p-1">{children}</div>
 
           <Footer />
         </Providers>

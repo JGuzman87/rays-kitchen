@@ -2,14 +2,14 @@
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
 import React from 'react'
-
+import Image from 'next/image';
 
 
 const Nav = () => {
   const { count } = useCount();
   return (
     <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -45,11 +45,13 @@ const Nav = () => {
                 </li>
               </ul>
             </li>
-            
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Rays Kitchen 👨🏼‍🍳 🇵🇷</a>
+        <Link href={"/"}>
+          <h2 className="font-serif font-bold text-2xl">Rays Kitchen 🇵🇷</h2>
+        </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -86,7 +88,6 @@ const Nav = () => {
             <Link href={"/order"}>Order Online</Link>
           </li>
         </ul>
-        
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">

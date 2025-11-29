@@ -1,9 +1,11 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: all;
+};
 
 html, body {
   height: 100%;
-  background-image: url("/PRBG2.png");
+  background-image: url("/PRBG.png");
   background-size: cover;
   
   
