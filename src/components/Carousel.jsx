@@ -1,48 +1,70 @@
 import React from 'react'
+import Image from 'next/image';
 
 const Carousel = () => {
   return (
-    <div className="carousel md:carousel-center bg-neutral rounded-box  space-x-2 p-4">
+    <div className="carousel carousel-center bg-neutral rounded-box  space-x-2 p-4">
       <div className="carousel-item">
-        <img
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
           src="/jibarito.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
       <div className="carousel-item">
-        <img
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
           src="/tembleque.png"
-          className="w-fit h-100 object-cover p-1 rounded-box"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="tresleches.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
       <div className="carousel-item">
-        <img
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
           src="/pernil.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
       <div className="carousel-item">
-        <img
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
           src="/mofongo.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
       <div className="carousel-item">
-        <img
-          src="/arroz-guandules.png"
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
+          src="/tresleches.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
       <div className="carousel-item">
-        <img
-          src="puertorican-flan.png"
-          className="w-full h-100  object-cover p-1 rounded-box"
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
+          src="/arrozcondulce.png"
+          className="w-full h-100 object-cover p-1 rounded-box"
+        />
+      </div>
+      <div className="carousel-item">
+        <Image
+          width={500}
+          height={500}
+          alt="image of food"
+          src="/arroz-guandules.png"
+          className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
     </div>
