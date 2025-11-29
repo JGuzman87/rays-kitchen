@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+html, body {
+  height: 100%;
+  background-image: url("/PRBG2.png");
+  background-size: cover;
+  
+  
+  background-color: #f8f8f8; /* fallback color */
+
+
+
+}
