@@ -15,7 +15,7 @@ const DessertMenuPage = () => {
         />
         <Card
           mealName="Tres Leches Cake"
-          imgUrl="/tresleches.png"
+          imgUrl="/treslechescake.png"
           imgAlt="tresleches"
           price={5.99}
         />

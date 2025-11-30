@@ -14,6 +14,7 @@ export default function Home() {
           twist. Fresh ingredients, bold spices, and comfort food vibes.
         </p>
         <p>Check out the the Menu</p>
+        <p className="font-thin ">Since we are just starting, we are offering a limited menu for now. 5 items or less per order.</p>
         <ul className="flex gap-4 underline decoration-solid">
           <li className="hover:underline decoration-solid hover:text-blue-200">
             <Link href={"/lunch"}>Lunch</Link>
