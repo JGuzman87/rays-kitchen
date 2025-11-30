@@ -16,13 +16,24 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" data-theme="caramellatte">
-      <body className={`antialiased flex flex-col min-h-screen`}>
-        <Providers>
-          <Nav />
-          <div className="p-1">{children}</div>
+      <body className={`antialiased flex flex-col min-h-screen relative`}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="fixed top-0 left-0 w-full h-full bg-black/40  z-0 object-cover"
+        >
+          <source src="/pr-foods.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10">
+          <Providers>
+            <Nav />
+            <div className="p-1 relative z-10">{children}</div>
 
-          <Footer />
-        </Providers>
+            <Footer />
+          </Providers>
+        </div>
       </body>
     </html>
   );
