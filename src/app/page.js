@@ -16,10 +16,10 @@ export default function Home() {
         <p>Check out the the Menu</p>
         <ul className="flex gap-4 underline decoration-solid">
           <li className="hover:underline decoration-solid hover:text-blue-200">
-            <Link href={"/menu/lunch"}>Lunch</Link>
+            <Link href={"/lunch"}>Lunch</Link>
           </li>
           <li className="hover:underline decoration-solid  hover:text-blue-200">
-            <Link href={"/menu/desserts"}>Desserts</Link>
+            <Link href={"/desserts"}>Desserts</Link>
           </li>
         </ul>
       </div>
