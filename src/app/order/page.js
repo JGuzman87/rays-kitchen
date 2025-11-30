@@ -53,8 +53,7 @@ const handleClick = () => {
           </p>
           <p className="text-white text-2xl font-bold">
             Total Price : $
-            {storedMeal
-              .reduce((total, item) => total + item.price, 0)
+            {storedMeal.reduce((total, item) => total + item.price, 0)
               .toFixed(2)}
           </p>
           <div className="card-actions justify-end">

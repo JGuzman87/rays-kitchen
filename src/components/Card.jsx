@@ -32,7 +32,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   };
 
   return (
-    <div className="card shadow-2xl bg-white gap-2">
+    <div className="card shadow-2xl backdrop-blur-2xl gap-2">
       <figure>
         <Image
           ref={imageRef}
@@ -45,7 +45,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
       </figure>
       <div className="card-body">
         <h1 className="text-lg font-bold">{mealName}</h1>
-        <p>{price}</p>
+        <p className="font-bold">${price}</p>
         <div className="card-actions justify-end">
           <button
             type="button"

@@ -11,13 +11,13 @@ const DessertMenuPage = () => {
           mealName="Flan"
           imgUrl="/puertorican-flan.png"
           imgAlt="flan"
-          price={5.99}
+          price={3.45}
         />
         <Card
-          mealName="Tres Leches Cake"
+          mealName="Tres Leches Whole Cake"
           imgUrl="/treslechescake.png"
           imgAlt="tresleches"
-          price={5.99}
+          price={32.99}
         />
         <Card
           mealName="Tembleque"
