@@ -20,7 +20,7 @@ export function CountProvider({ children }) {
     localStorage.removeItem("meal");
     localStorage.removeItem("count");
     setStoredCount(0);
-    console.log(count);
+    setCount(0);
   };
 
   useEffect(() => {

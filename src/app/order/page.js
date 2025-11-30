@@ -6,26 +6,31 @@ const Order = () => {
   const { count, removeItem } = useCount();
 
   const [storedMeal, setStoredMeal] = useState([]);
-  const [newCount, setNewCount] = useState(count);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("meal")) || [];
     setStoredMeal(saved);
-    console.log(newCount);
-  }, [newCount]);
+  }, [count]);
 
+  
   const handleRemove = () => {
     removeItem();
+    
+    localStorage.removeItem("meal");
     setStoredMeal([]);
-    setNewCount(0);
+
   }
 const handleClick = () => {
+  if(storedMeal.length === 0) {
+    alert('No items in order to submit!')
+    return;
+  }
   alert('Order Submitted!')
   removeItem();
-  setNewCount(0);
+
+  localStorage.removeItem("meal");
   setStoredMeal([]);
 }
-
 
 
   return (
