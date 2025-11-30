@@ -12,8 +12,8 @@ const Nav = () => {
 
   const router = useRouter();
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start ">
+    <div className="navbar bg-base-100 shadow-sm relative ">
+      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -34,7 +34,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
           >
             <li>
               <Link href={"/"}>Home</Link>
@@ -63,8 +63,7 @@ const Nav = () => {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-            {/* change popover-1 and --anchor-1 names. Use unique names for each dropdown */}
-            {/* For TSX uncomment the commented types below */}
+         
             <button
               className="btn-ghost"
               popoverTarget="popover-1"
