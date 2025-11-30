@@ -27,7 +27,7 @@ const Carousel = () => {
           width={500}
           height={500}
           alt="image of food"
-          src="/pernil.png"
+          src="/pernil2.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
@@ -36,7 +36,7 @@ const Carousel = () => {
           width={500}
           height={500}
           alt="image of food"
-          src="/mofongo.png"
+          src="/mofongo1.png"
           className="w-full h-100 object-cover p-1 rounded-box"
         />
       </div>
