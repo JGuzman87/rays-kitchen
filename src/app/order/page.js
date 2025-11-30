@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
 
 const Order = () => {
-  const { count, handleRemove } = useCount();
+  const { count, removeItem } = useCount();
 
   const [storedMeal, setStoredMeal] = useState([]);
   const [newCount, setNewCount] = useState(count);
@@ -14,12 +14,17 @@ const Order = () => {
     console.log(newCount);
   }, [newCount]);
 
-  const handleClick = () => {
-    handleRemove();
+  const handleRemove = () => {
+    removeItem();
     setStoredMeal([]);
     setNewCount(0);
   }
-
+const handleClick = () => {
+  alert('Order Submitted!')
+  removeItem();
+  setNewCount(0);
+  setStoredMeal([]);
+}
 
 
 
@@ -48,13 +53,13 @@ const Order = () => {
               .toFixed(2)}
           </p>
           <div className="card-actions justify-end">
-            <button type="button" className="btn btn-success">
+            <button type="button" className="btn btn-success" onClick={handleClick}>
               Submit Order
             </button>
             <button
               type="button"
               className="btn btn-error"
-              onClick={handleClick}
+              onClick={handleRemove}
             >
               Restart Order
             </button>

@@ -16,7 +16,7 @@ export function CountProvider({ children }) {
     }
   };
 
-  const handleRemove = () => {
+  const removeItem = () => {
     localStorage.removeItem("meal");
     localStorage.removeItem("count");
     setStoredCount(0);
@@ -29,7 +29,7 @@ export function CountProvider({ children }) {
   }, []);
 
   return (
-    <CountContext.Provider value={{ count, addCount, storedCount, handleRemove }}>
+    <CountContext.Provider value={{ count, addCount, storedCount, removeItem }}>
       {children}
     </CountContext.Provider>
   );
