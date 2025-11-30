@@ -1,27 +1,38 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CountContext = createContext();
 
 export function CountProvider({ children }) {
   const [count, setCount] = useState(0);
+  const [storedCount, setStoredCount] = useState(0);
 
   const addCount = () => {
     if (count < 5) {
       setCount((num) => num + 1);
+      localStorage.setItem("count", JSON.stringify(storedCount + 1));
+      setStoredCount(storedCount + 1);
     }
-   
-     localStorage.setItem("count", count);
-
-
   };
 
+  const handleRemove = () => {
+    localStorage.removeItem("meal");
+    localStorage.removeItem("count");
+    setStoredCount(0);
+    console.log(count);
+  };
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("count")) || 0;
+    setStoredCount(saved);
+  }, []);
+
   return (
-    <CountContext.Provider value={{count, addCount}}>
-        {children}
+    <CountContext.Provider value={{ count, addCount, storedCount, handleRemove }}>
+      {children}
     </CountContext.Provider>
-  )
+  );
 }
 
 export const useCount = () => useContext(CountContext);

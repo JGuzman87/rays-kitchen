@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
 
 const Order = () => {
-  const { count } = useCount();
+  const { count, handleRemove } = useCount();
 
   const [storedMeal, setStoredMeal] = useState([]);
   const [newCount, setNewCount] = useState(count);
@@ -14,14 +14,14 @@ const Order = () => {
     console.log(newCount);
   }, [newCount]);
 
-
-
-  const handleRemove = () => {
-    localStorage.removeItem("meal");
-
+  const handleClick = () => {
+    handleRemove();
+    setStoredMeal([]);
     setNewCount(0);
-    console.log(count);
-  };
+  }
+
+
+
 
   return (
     <div>
@@ -54,7 +54,7 @@ const Order = () => {
             <button
               type="button"
               className="btn btn-error"
-              onClick={handleRemove}
+              onClick={handleClick}
             >
               Restart Order
             </button>

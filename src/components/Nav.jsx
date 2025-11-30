@@ -1,21 +1,14 @@
 "use client"
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
-import { useEffect, useState } from 'react'
+
 import { useRouter } from 'next/navigation';
 
 
 const Nav = () => {
 
-  const { count } = useCount();
+  const {  storedCount } = useCount();
 
-
-useEffect(() => {
-const saved = JSON.parse(localStorage.getItem('count') )|| 1;
-
-
-  
-}, []);
 
   const router = useRouter();
   return (
@@ -103,7 +96,7 @@ const saved = JSON.parse(localStorage.getItem('count') )|| 1;
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary">{count}</span>
+          <span className="indicator-item badge badge-secondary">{storedCount}</span>
           <button className="btn btn-ghost btn-circle" onClick={() => router.push('/order')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

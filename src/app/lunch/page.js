@@ -11,9 +11,10 @@ const LunchMenuPage = () => {
         <Card
           mealName="Arroz Con Guandules"
           imgUrl="/arroz-guandules.png"
-          imgAlt="arroz"
-          price={5.99}
+          imgAlt="Arroz Con Guandules"
+          price={8.99}
         />
+     
         <Card
           mealName="Pernil"
           imgUrl="/pernil.png"
@@ -24,13 +25,13 @@ const LunchMenuPage = () => {
           mealName="Jibarito"
           imgUrl="/jibarito.png"
           imgAlt="jibarito"
-          price={5.99}
+          price={7.99}
         />
         <Card
           mealName="Mofongo"
           imgUrl="/mofongo.png"
           imgAlt="mofongo"
-          price={5.99}
+          price={10.00}
         />
       </div>
     </div>
