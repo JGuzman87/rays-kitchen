@@ -1,12 +1,22 @@
 "use client"
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 
 
 const Nav = () => {
+
   const { count } = useCount();
+
+
+useEffect(() => {
+const saved = JSON.parse(localStorage.getItem('count') )|| 1;
+
+
+  
+}, []);
+
   const router = useRouter();
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -39,10 +49,10 @@ const Nav = () => {
             <li>
               <ul className="p-2">
                 <li>
-                  <Link href={"/menu/lunch"}>Lunch Menu</Link>
+                  <Link href={"/lunch"}>Lunch Menu</Link>
                 </li>
                 <li>
-                  <Link href={"/menu/desserts"}>Dessert Menu</Link>
+                  <Link href={"/desserts"}>Dessert Menu</Link>
                 </li>
               </ul>
             </li>
@@ -79,10 +89,10 @@ const Nav = () => {
               }
             >
               <li>
-                <Link href={"/menu/lunch"}>Lunch Menu</Link>
+                <Link href={"/lunch"}>Lunch Menu</Link>
               </li>
               <li>
-                <Link href={"/menu/desserts"}>Dessert Menu</Link>
+                <Link href={"/desserts"}>Dessert Menu</Link>
               </li>
             </ul>
           </li>

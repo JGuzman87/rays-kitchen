@@ -11,6 +11,10 @@ export function CountProvider({ children }) {
     if (count < 5) {
       setCount((num) => num + 1);
     }
+   
+     localStorage.setItem("count", count);
+
+
   };
 
   return (

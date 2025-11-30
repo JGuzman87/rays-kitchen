@@ -13,11 +13,11 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
   const addLocalStorage = (item) => {
 
-  const existingItems =  JSON.parse(localStorage.getItem("lunch")) || [];
+  const existingItems =  JSON.parse(localStorage.getItem("meal")) || [];
    const newItem = [...existingItems, item];
    if(newItem.length <= 5) {
 
-     localStorage.setItem('lunch', JSON.stringify(newItem))
+     localStorage.setItem('meal', JSON.stringify(newItem))
    }
   
 

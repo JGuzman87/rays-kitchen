@@ -1,21 +1,28 @@
 "use client"
 import { useEffect, useState } from 'react';
+import { useCount } from "@/context/CountContext";
 
 
 
 const Order = () => {
 
-  const [storedLunch, setStoredLunch] = useState([]);
+  const { count } = useCount();
+
+  const [storedMeal, setStoredMeal] = useState([]);
+  const [newCount, setNewCount ] = useState(count);
 
   useEffect(() => {
 
-    const saved = JSON.parse(localStorage.getItem('lunch')) || [];
-    setStoredLunch(saved);
-  }, []);
+    const saved = JSON.parse(localStorage.getItem('meal')) || [];
+    setStoredMeal(saved);
+    console.log(newCount);
+  }, [newCount]);
 
   const handleRemove = () => {
-    localStorage.removeItem('lunch');
-    localStorage.removeItem('dessert');
+    localStorage.removeItem('meal');
+   
+    setNewCount(0)
+    console.log(count)
   }
   return (
     <div>
@@ -23,10 +30,10 @@ const Order = () => {
         <div className="card-body">
           <h1 className="font-bold text-2xl text-white">Review Your Order</h1>
           <ul className="text-2xl capitalize text-white font-bold">
-            {storedLunch.length > 0 ? (
-              storedLunch.map((item, index) => (
+            {storedMeal.length > 0 ? (
+              storedMeal.map((item, index) => (
                 <li key={index}>
-                  <p>{item}</p>
+                  <p>{item}{count}</p>
                 </li>
               ))
             ) : (

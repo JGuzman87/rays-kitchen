@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 
 export const metadata = {
-  title: "Ray's Kitchen 👨🏼‍🍳",
+  title: "Ray's Kitchen",
   description: "App for Rays food",
 };
 
