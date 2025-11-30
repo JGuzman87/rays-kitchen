@@ -33,7 +33,8 @@ const Order = () => {
             {storedMeal.length > 0 ? (
               storedMeal.map((item, index) => (
                 <li key={index}>
-                  <p>{item}{count}</p>
+                  <p>{item.name}</p>
+                  <p>{item.price}</p>
                 </li>
               ))
             ) : (
