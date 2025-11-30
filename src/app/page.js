@@ -2,6 +2,7 @@ import Carousel from "@/components/Carousel";
 import Link from "next/link";
 
 export default function Home() {
+  
   return (
     <div className="flex flex-col gap-1">
       <div className="bg-amber-800/70  flex flex-col gap-8 p-4 backdrop-blur-xs text-white bg-blend-overlay font-mono rounded-2xl">
