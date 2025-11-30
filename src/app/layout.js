@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           loop
           muted
           playsInline
-          className="fixed top-0 left-0 w-full h-full bg-black/40  z-0 object-cover"
+          className="fixed top-0 left-0 w-full h-full backdrop-blur-xs z-0 object-cover"
         >
           <source src="/pr-foods.mp4" type="video/mp4" />
         </video>
