@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-base-200 text-black p-10">
       <aside>
-        <Image alt="logo" src="/logo.png" height={200} width={200} className='w-fit'/>
+        <Image alt="logo" src="/logo.png" height={200} width={200} className='w-fit' loading='eager'/>
         <p>
           Rays Kitchen LLC
           <br />

@@ -49,7 +49,7 @@ const Nav = () => {
           </ul>
         </div>
         <Link href={"/"}>
-        <img src='/logo.png' alt="logo" className='w-20'/>
+        <img src='/logo.png' alt="logo" className='w-20' loading='eager' />
         
         </Link>
       </div>
