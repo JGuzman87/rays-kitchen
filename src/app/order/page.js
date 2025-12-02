@@ -35,10 +35,13 @@ const handleClick = () => {
 
   return (
     <div>
-      <div className="card bg-amber-800/30 backdrop-blur-xs md:max-w-1/2">
+      <div
+        className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed
+"
+      >
         <div className="card-body">
-          <h1 className="font-bold text-2xl text-white">Review Your Order</h1>
-          <ul className="text-2xl capitalize text-white font-bold">
+          <h1 className="font-bold text-2xl text-white ">Review Your Order</h1>
+          <ul className="text-2xl capitalize text-white font-bold ">
             {storedMeal.length > 0
               ? storedMeal.map((item, index) => (
                   <li key={index}>
@@ -53,11 +56,16 @@ const handleClick = () => {
           </p>
           <p className="text-white text-2xl font-bold">
             Total Price : $
-            {storedMeal.reduce((total, item) => total + item.price, 0)
+            {storedMeal
+              .reduce((total, item) => total + item.price, 0)
               .toFixed(2)}
           </p>
           <div className="card-actions justify-end">
-            <button type="button" className="btn btn-success" onClick={handleClick}>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={handleClick}
+            >
               Submit Order
             </button>
             <button

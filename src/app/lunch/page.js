@@ -4,7 +4,7 @@ import Card from '@/components/Card';
 const LunchMenuPage = () => {
   return (
     <div className="flex flex-col p-4 gap-2">
-      <h1 className="font-bold text-center text-5xl text-white font-stretch-50% bg-white/30 backdrop:blur-2xl w-fit self-center">
+      <h1 className="font-bold text-center text-5xl font-stretch-50% bg-black/10 backdrop:blur-2xl w-fit self-center">
         Lunch Menu
       </h1>
       <div className="grid md:grid-cols-4 gap-2 p-1">
