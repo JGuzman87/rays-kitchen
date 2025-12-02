@@ -34,7 +34,7 @@ const Order = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
     return () => clearInterval(timer);
   }, []);
 
