@@ -41,32 +41,39 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   };
 
   return (
-    <div className="card shadow-2xl backdrop-blur-2xl gap-2">
-      <figure>
-        <Image
-          ref={imageRef}
-          className="w-full h-48 object-cover rounded-t-2xl p-1"
-          alt={imgAlt}
-          src={imgUrl}
-          width={400}
-          height={400}
+    <>
+      {showAlert && (
+        <Toast
+          message={`${mealName} added to order!`}
+          styling={"alert alert-success font-bold"}
         />
-      </figure>
-      <div className="card-body">
-        { showAlert && <Toast message={`${mealName} added to order!`} styling={"alert alert-success font-bold"} /> }
-        <h1 className="text-lg font-bold">{mealName}</h1>
-        <p className="font-bold">${price}</p>
-        <div className="card-actions justify-end">
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={() => handleClick(imageRef)}
-          >
-            add to cart
-          </button>
+      )}
+      <div className="card shadow-2xl backdrop-blur-2xl gap-2">
+        <figure>
+          <Image
+            ref={imageRef}
+            className="w-full h-48 object-cover rounded-t-2xl p-1"
+            alt={imgAlt}
+            src={imgUrl}
+            width={400}
+            height={400}
+          />
+        </figure>
+        <div className="card-body">
+          <h1 className="text-lg font-bold">{mealName}</h1>
+          <p className="font-bold">${price}</p>
+          <div className="card-actions justify-end">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={() => handleClick(imageRef)}
+            >
+              add to cart
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

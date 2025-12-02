@@ -55,7 +55,7 @@ const Order = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {visible && <Toast message={toastMessage} styling={toastStyle} />}
       {isLoading ? (
         <div className="skeleton h-100 md:w-1/2  bg-black/30"></div>
@@ -118,7 +118,7 @@ const Order = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
