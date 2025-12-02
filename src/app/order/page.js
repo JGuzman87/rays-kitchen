@@ -7,6 +7,7 @@ const Order = () => {
 
   const [storedMeal, setStoredMeal] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [orderName, setOrderName] = useState("");
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("meal")) || [];
@@ -24,7 +25,7 @@ const Order = () => {
       alert("No items in order to submit!");
       return;
     }
-    alert("Order Submitted!");
+    alert(`Thank you, ${orderName}! Your order has been submitted.`);
     removeItem();
 
     localStorage.removeItem("meal");
@@ -40,8 +41,10 @@ const Order = () => {
 
   return (
     <div>
-     
-{  isLoading ? <div className="skeleton h-100 md:w-1/2  bg-black/30"></div> :      <div
+      {isLoading ? (
+        <div className="skeleton h-100 md:w-1/2  bg-black/30"></div>
+      ) : (
+        <div
           className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed
 "
         >
@@ -49,18 +52,18 @@ const Order = () => {
             <h1 className="font-bold text-2xl text-white ">
               Review Your Order
             </h1>
-            
-              <ul className="text-2xl capitalize text-white font-bold ">
-                {storedMeal.length > 0
-                  ? storedMeal.map((item, index) => (
-                      <li key={index}>
-                        <p>{item.name}</p>
-                        <p>${item.price}</p>
-                      </li>
-                    ))
-                  : " No Items Selected"}
-              </ul>
-            
+
+            <ul className="text-2xl capitalize text-white font-bold ">
+              {storedMeal.length > 0
+                ? storedMeal.map((item, index) => (
+                    <li key={index}>
+                      <p>{item.name}</p>
+                      <p>${item.price}</p>
+                    </li>
+                  ))
+                : " No Items Selected"}
+            </ul>
+
             <p className="text-white text-2xl font-extrabold">
               ----------------------------
             </p>
@@ -71,6 +74,16 @@ const Order = () => {
                 .toFixed(2)}
             </p>
             <div className="card-actions justify-end">
+              {storedMeal.length > 0 && (
+                <input
+                  type="text"
+                  placeholder="Name for your order"
+                  className="input input-bordered w-full max-w-xs"
+                  value={orderName}
+                  onChange={(e) => setOrderName(e.target.value)}
+                  required
+                />
+              )}
               <button
                 type="button"
                 className="btn btn-success"
@@ -87,8 +100,8 @@ const Order = () => {
               </button>
             </div>
           </div>
-        </div>}
-      
+        </div>
+      )}
     </div>
   );
 };
