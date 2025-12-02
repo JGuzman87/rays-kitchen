@@ -5,11 +5,11 @@ import Image from "next/image";
 
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
-  const { addCount } = useCount();
-
-
+  const { addCount, count } = useCount();
 
   const imageRef = useRef(null);
+
+  const [showAlert, setShowAlert] = useState(false);
 
   const addLocalStorage = (item) => {
 
@@ -25,8 +25,16 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   }
 
   const handleClick = () => {
- 
 
+    if(count >=5 ) {
+      alert("You can only add up to 5 items to your order.");
+      return;
+    }
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 2000);
+  
     addLocalStorage(imageRef.current.alt);
     addCount();
   };
@@ -44,6 +52,12 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
         />
       </figure>
       <div className="card-body">
+        { showAlert && <div className="toast toast-top toast-center">
+          <div className="alert alert-info">
+            <span>{mealName} added to cart!</span>
+          </div>
+         
+        </div>}
         <h1 className="text-lg font-bold">{mealName}</h1>
         <p className="font-bold">${price}</p>
         <div className="card-actions justify-end">

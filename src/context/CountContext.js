@@ -8,6 +8,7 @@ export function CountProvider({ children }) {
   const [count, setCount] = useState(0);
   const [storedCount, setStoredCount] = useState(0);
 
+
   const addCount = () => {
     if (count < 5) {
       setCount((num) => num + 1);
@@ -15,6 +16,8 @@ export function CountProvider({ children }) {
       setStoredCount(storedCount + 1);
     }
   };
+
+
 
   const removeItem = () => {
     localStorage.removeItem("meal");
