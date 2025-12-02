@@ -34,7 +34,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-    }, 2000);
+    }, 1000);
   
     addLocalStorage(imageRef.current.alt);
     addCount();
@@ -42,7 +42,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
   return (
     <>
-      <div className="card shadow-2xl backdrop-blur-2xl gap-2">
+      <div className="card shadow-2xl bg-white/50 backdrop-blur-xs gap-2">
         {showAlert && (
           <Toast
             message={`${mealName} added to order!`}
