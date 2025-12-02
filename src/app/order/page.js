@@ -1,41 +1,47 @@
 "use client";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
 
 const Order = () => {
   const { count, removeItem } = useCount();
 
   const [storedMeal, setStoredMeal] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("meal")) || [];
     setStoredMeal(saved);
   }, [count]);
 
-  
   const handleRemove = () => {
     removeItem();
-    
+
     localStorage.removeItem("meal");
     setStoredMeal([]);
+  };
+  const handleClick = () => {
+    if (storedMeal.length === 0) {
+      alert("No items in order to submit!");
+      return;
+    }
+    alert("Order Submitted!");
+    removeItem();
 
-  }
-const handleClick = () => {
-  if(storedMeal.length === 0) {
-    alert('No items in order to submit!')
-    return;
-  }
-  alert('Order Submitted!')
-  removeItem();
+    localStorage.removeItem("meal");
+    setStoredMeal([]);
+  };
 
-  localStorage.removeItem("meal");
-  setStoredMeal([]);
-}
-
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div>
-      <div
+
+      { isLoading ? (<div className="skeleton h-100 md:w-1/2 bg-black/50"></div>) : <div
         className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed
 "
       >
@@ -46,7 +52,7 @@ const handleClick = () => {
               ? storedMeal.map((item, index) => (
                   <li key={index}>
                     <p>{item.name}</p>
-                    <p>{item.price}</p>
+                    <p>${item.price}</p>
                   </li>
                 ))
               : " No Items Selected"}
@@ -77,7 +83,7 @@ const handleClick = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };
