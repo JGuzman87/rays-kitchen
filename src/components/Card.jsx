@@ -2,6 +2,7 @@
 import { useCount } from "@/context/CountContext";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Toast from "./Toast";
 
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
@@ -52,12 +53,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
         />
       </figure>
       <div className="card-body">
-        { showAlert && <div className="toast toast-top toast-center">
-          <div className="alert alert-success">
-            <span className="font-stretch-extra-condensed">{mealName} added to cart!</span>
-          </div>
-         
-        </div>}
+        { showAlert && <Toast message={`${mealName} added to order!`} styling={"alert alert-success font-bold"} /> }
         <h1 className="text-lg font-bold">{mealName}</h1>
         <p className="font-bold">${price}</p>
         <div className="card-actions justify-end">

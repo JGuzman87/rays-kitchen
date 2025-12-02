@@ -1,6 +1,7 @@
 "use client";
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
+import Toast from "@/components/Toast";
 
 const Order = () => {
   const { count, removeItem } = useCount();
@@ -8,6 +9,9 @@ const Order = () => {
   const [storedMeal, setStoredMeal] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [orderName, setOrderName] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastStyle, setToastStyle] = useState("");
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("meal")) || [];
@@ -21,11 +25,22 @@ const Order = () => {
     setStoredMeal([]);
   };
   const handleClick = () => {
-    if (storedMeal.length === 0) {
-      alert("No items in order to submit!");
+    if (storedMeal.length === 0 || orderName.trim() === "") {
+      setToastMessage("Cannot submit order. Please add items and provide your name.");
+      setToastStyle("alert alert-error font-bold");
+      setVisible(true);
+      setTimeout(() => {
+        setVisible(false);
+      }, 2000); 
       return;
     }
-    alert(`Thank you, ${orderName}! Your order has been submitted.`);
+    setToastMessage(`Thank you, ${orderName}! Your order has been submitted.`);
+    setToastStyle("alert alert-success font-bold");
+    setVisible(true);
+    setTimeout(() => {
+      setVisible(false);
+    }, 2000);
+
     removeItem();
 
     localStorage.removeItem("meal");
@@ -41,6 +56,7 @@ const Order = () => {
 
   return (
     <div>
+      {visible && <Toast message={toastMessage} styling={toastStyle} />}
       {isLoading ? (
         <div className="skeleton h-100 md:w-1/2  bg-black/30"></div>
       ) : (
