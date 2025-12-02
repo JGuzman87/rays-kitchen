@@ -42,13 +42,13 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
   return (
     <>
-      {showAlert && (
-        <Toast
-          message={`${mealName} added to order!`}
-          styling={"alert alert-success font-bold"}
-        />
-      )}
       <div className="card shadow-2xl backdrop-blur-2xl gap-2">
+        {showAlert && (
+          <Toast
+            message={`${mealName} added to order!`}
+            styling={"alert alert-success font-bold"}
+          />
+        )}
         <figure>
           <Image
             ref={imageRef}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Toast = ({message, styling}) => {
   return (
-    <div className="toast toast-top toast-center">
+    <div className="toast toast-middle">
           <div className={styling}>
             <span className="font-stretch-extra-condensed">{message}</span>
           </div>

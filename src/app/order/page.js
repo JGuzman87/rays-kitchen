@@ -56,7 +56,6 @@ const Order = () => {
 
   return (
     <>
-      {visible && <Toast message={toastMessage} styling={toastStyle} />}
       {isLoading ? (
         <div className="skeleton h-100 md:w-1/2  bg-black/30"></div>
       ) : (
@@ -64,6 +63,7 @@ const Order = () => {
           className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed
 "
         >
+          {visible && <Toast message={toastMessage} styling={toastStyle} />}
           <div className="card-body">
             <h1 className="font-bold text-2xl text-white ">
               Review Your Order
