@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '@/components/Card';
+
 const DessertMenuPage = () => {
   return (
     <div className="flex flex-col p-4 gap-2">
@@ -31,6 +32,7 @@ const DessertMenuPage = () => {
           imgAlt="arrozcondulce"
           price={5.99}
         />
+
       </div>
     </div>
   );
