@@ -53,8 +53,8 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
       </figure>
       <div className="card-body">
         { showAlert && <div className="toast toast-top toast-center">
-          <div className="alert alert-info">
-            <span>{mealName} added to cart!</span>
+          <div className="alert alert-success">
+            <span className="font-stretch-extra-condensed">{mealName} added to cart!</span>
           </div>
          
         </div>}

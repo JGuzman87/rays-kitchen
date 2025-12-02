@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en" data-theme="lofi">
+    <html lang="en" data-theme="pastel">
       <body
         className={`antialiased flex flex-col min-h-screen relative font-stretch-condensed
 `}
