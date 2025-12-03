@@ -1,5 +1,4 @@
 "use client"
-
 import MotionWrapper from '@/components/MotionWrapper';
 import Card from '@/components/Card'
 

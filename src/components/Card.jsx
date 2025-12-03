@@ -1,7 +1,7 @@
 "use client";
 import { useCount } from "@/context/CountContext";
 import { useToast } from "@/context/ToastContext";
-import { useState, useRef } from "react";
+import {  useRef } from "react";
 import Image from "next/image";
 import Toast from "./Toast";
 
