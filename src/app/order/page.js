@@ -85,7 +85,7 @@ const Order = () => {
                 <Link href={"/lunch"} className=" hover:text-blue-400">
                   Lunch
                 </Link>
-                <Link href={"/dessert"} className=" hover:text-blue-400">
+                <Link href={"/desserts"} className=" hover:text-blue-400">
                   Dessert
                 </Link>
               </div>
