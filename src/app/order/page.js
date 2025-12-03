@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
 import Toast from "@/components/Toast";
+import Link from "next/link";
 
 const Order = () => {
   const { count, removeItem, isLoading,setIsLoading } = useCount();
@@ -77,12 +78,21 @@ const Order = () => {
                       <p>${item.price}</p>
                     </li>
                   ))
-                : " No Items Selected"}
+                : <p className="font-thin">No items selected. <br />Checkout our menus below!</p>}
             </ul>
+            {storedMeal.length === 0 && (
+              <div className="flex gap-4 text-white">
+                <Link href={"/lunch"} className=" hover:text-blue-400">
+                  Lunch
+                </Link>
+                <Link href={"/dessert"} className=" hover:text-blue-400">
+                  Dessert
+                </Link>
+              </div>
+            )}
 
-            <p className="text-white text-2xl font-extrabold">
-              ----------------------------
-            </p>
+            <p className="text-white text-2xl">----------------------------</p>
+
             <p className="text-white text-2xl font-extrabold">
               Total Price : $
               {storedMeal
