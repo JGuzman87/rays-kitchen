@@ -126,9 +126,9 @@ const Nav = () => {
             <li>
               <Link href={"/order"}>View orders</Link>
             </li>
-            <li>
+            {count > 0 && (<li>
               <Link href={"#"} onClick={() => removeItem()}>Clear Cart</Link>
-            </li>
+            </li>)}
           </ul>
         </div>
       </div>
