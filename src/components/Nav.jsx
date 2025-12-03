@@ -124,7 +124,7 @@ const Nav = () => {
             }
           >
             <li>
-              <Link href={"/order"}>Orders</Link>
+              <Link href={"/order"}>View orders</Link>
             </li>
             <li>
               <Link href={"#"} onClick={() => removeItem()}>Clear Cart</Link>
