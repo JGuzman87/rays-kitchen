@@ -2,15 +2,12 @@
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
 
-import { useRouter } from 'next/navigation';
-
 
 const Nav = () => {
 
-  const {  count } = useCount();
+  const {  count, removeItem } = useCount();
 
 
-  const router = useRouter();
   return (
     <div className="navbar bg-base-100 shadow-sm relative ">
       <div className="navbar-start">
@@ -97,12 +94,11 @@ const Nav = () => {
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary">
-            {count}
-          </span>
+          <span className="indicator-item badge badge-secondary">{count}</span>
           <button
             className="btn btn-ghost btn-circle"
-            onClick={() => router.push("/order")}
+            popoverTarget="popover-2"
+            style={{ anchorName: "--anchor-2" }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -119,6 +115,21 @@ const Nav = () => {
               />
             </svg>
           </button>
+          <ul
+            className="dropdown dropdown-left menu w-35 md:w-52 rounded-box bg-base-100 shadow-sm"
+            popover="auto"
+            id="popover-2"
+            style={
+              { positionAnchor: "--anchor-2" } /* as React.CSSProperties */
+            }
+          >
+            <li>
+              <Link href={"/order"}>Orders</Link>
+            </li>
+            <li>
+              <Link href={"#"} onClick={() => removeItem()}>Clear Cart</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
