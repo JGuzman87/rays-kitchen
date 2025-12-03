@@ -94,7 +94,9 @@ const Nav = () => {
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary">{count}</span>
+          {count > 0 && (
+            <span className="indicator-item badge badge-secondary">{count}</span>
+          )}
           <button
             className="btn btn-ghost btn-circle"
             popoverTarget="popover-2"

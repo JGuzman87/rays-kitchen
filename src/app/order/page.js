@@ -18,11 +18,6 @@ const Order = () => {
     setStoredMeal(saved);
   }, [count]);
 
-  const handleRemove = () => {
-
-    removeItem();
-    
-  };
   const handleClick = () => {
     if (storedMeal.length === 0 || orderName.trim() === "") {
       setToastMessage(
@@ -115,7 +110,7 @@ const Order = () => {
               <button
                 type="button"
                 className="btn btn-error"
-                onClick={handleRemove}
+                onClick={() => removeItem()}
               >
                 Restart Order
               </button>
