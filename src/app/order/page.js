@@ -24,11 +24,11 @@ const Order = () => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 800);
 
     localStorage.removeItem("meal");
     setStoredMeal([]);
-    return clearInterval(timer);
+    return () => clearInterval(timer);
   };
   const handleClick = () => {
     if (storedMeal.length === 0 || orderName.trim() === "") {
@@ -58,14 +58,14 @@ const Order = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 800);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
       {isLoading ? (
-        <div className="skeleton h-100 md:w-1/2  bg-black/30"></div>
+        <div className="skeleton h-50 md:w-1/2  bg-black/30"></div>
       ) : (
         <div
           className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed

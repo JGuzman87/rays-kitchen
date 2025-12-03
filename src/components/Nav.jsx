@@ -51,10 +51,11 @@ const Nav = () => {
             </li>
           </ul>
         </div>
-        <Link href={"/"}>
-        <img src='/logo.png' alt="logo" className='w-20' loading='eager' />
-        
-        </Link>
+        <div className="w-32 ml-4">
+          <Link href={"/"}>
+            <img src="/logo.png" alt="logo" className="w-15" loading="eager" />
+          </Link>
+        </div>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -63,7 +64,6 @@ const Nav = () => {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-         
             <button
               className="btn-ghost"
               popoverTarget="popover-1"
@@ -95,8 +95,13 @@ const Nav = () => {
       </div>
       <div className="navbar-end mr-4">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary">{storedCount}</span>
-          <button className="btn btn-ghost btn-circle" onClick={() => router.push('/order')}>
+          <span className="indicator-item badge badge-secondary">
+            {storedCount}
+          </span>
+          <button
+            className="btn btn-ghost btn-circle"
+            onClick={() => router.push("/order")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
