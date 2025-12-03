@@ -6,14 +6,13 @@ const CountContext = createContext();
 
 export function CountProvider({ children }) {
   const [count, setCount] = useState(0);
-  const [storedCount, setStoredCount] = useState(0);
+
 
 
   const addCount = () => {
     if (count < 5) {
       setCount((num) => num + 1);
-      localStorage.setItem("count", JSON.stringify(storedCount + 1));
-      setStoredCount(storedCount + 1);
+      localStorage.setItem("count", JSON.stringify(count + 1));
     }
   };
 
@@ -22,18 +21,18 @@ export function CountProvider({ children }) {
   const removeItem = () => {
     localStorage.removeItem("meal");
     localStorage.removeItem("count");
-    setStoredCount(0);
+
     setCount(0);
   };
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("count")) || 0;
-    setStoredCount(saved);
+
     setCount(saved);
   }, []);
 
   return (
-    <CountContext.Provider value={{ count, addCount, storedCount, removeItem }}>
+    <CountContext.Provider value={{ count, addCount, removeItem }}>
       {children}
     </CountContext.Provider>
   );

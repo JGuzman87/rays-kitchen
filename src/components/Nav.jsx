@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const Nav = () => {
 
-  const {  storedCount } = useCount();
+  const {  count } = useCount();
 
 
   const router = useRouter();
@@ -98,7 +98,7 @@ const Nav = () => {
       <div className="navbar-end mr-4">
         <div className="indicator">
           <span className="indicator-item badge badge-secondary">
-            {storedCount}
+            {count}
           </span>
           <button
             className="btn btn-ghost btn-circle"
