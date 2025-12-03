@@ -1,8 +1,8 @@
-"use client"
-import React from 'react'
-import Card from '@/components/Card';
-import MotionWrapper from '@/components/MotionWrapper';
+"use client";
 
+import React from "react";
+import Card from "@/components/Card";
+import MotionWrapper from "@/components/MotionWrapper";
 
 const DessertMenuPage = () => {
   return (
@@ -40,6 +40,6 @@ const DessertMenuPage = () => {
       </MotionWrapper>
     </div>
   );
-}
+};
 
 export default DessertMenuPage;

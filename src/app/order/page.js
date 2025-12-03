@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useCount } from "@/context/CountContext";
+import { useToast } from "@/context/ToastContext";
 import Toast from "@/components/Toast";
 import Link from "next/link";
 
 const Order = () => {
-  const { count, removeItem, isLoading,setIsLoading } = useCount();
+  const { count, removeItem, isLoading, setIsLoading } = useCount();
+  const { visible, toastMessage, toastStyle, orderFail, orderSuccess } =
+    useToast();
 
   const [storedMeal, setStoredMeal] = useState([]);
- 
+
   const [orderName, setOrderName] = useState("");
-  const [visible, setVisible] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
-  const [toastStyle, setToastStyle] = useState("");
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("meal")) || [];
@@ -21,26 +21,10 @@ const Order = () => {
 
   const handleClick = () => {
     if (storedMeal.length === 0 || orderName.trim() === "") {
-      setToastMessage(
-        "Cannot submit order. Please add items and provide your name."
-      );
-      setToastStyle("alert alert-error font-bold");
-      setVisible(true);
-      
-      setTimeout(() => {
-        setVisible(false);
-       
-      }, 2000);
+      orderFail();
       return;
     }
-    setToastMessage(`Thank you, ${orderName}! Your order has been submitted.`);
-    setToastStyle("alert alert-success font-bold");
-    setVisible(true);
-
-    setTimeout(() => {
-      setVisible(false);
-  
-    }, 2000);
+    orderSuccess();
 
     removeItem();
 
@@ -57,6 +41,7 @@ const Order = () => {
 
   return (
     <>
+      {visible && <Toast message={toastMessage} styling={toastStyle} />}
       {isLoading ? (
         <div className="skeleton h-50 md:w-1/2  bg-black/30"></div>
       ) : (
@@ -64,7 +49,6 @@ const Order = () => {
           className="card bg-black/50 backdrop-blur-lg md:max-w-1/2 font-stretch-condensed
 "
         >
-          {visible && <Toast message={toastMessage} styling={toastStyle} />}
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"

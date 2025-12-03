@@ -1,15 +1,15 @@
 "use client";
 import { useCount } from "@/context/CountContext";
+import { useToast } from "@/context/ToastContext";
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Toast from "./Toast";
 
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   const { addCount, count } = useCount();
+  const { setVisible, visible } = useToast();
 
   const imageRef = useRef(null);
-
-  const [showAlert, setShowAlert] = useState(false);
 
   const addLocalStorage = (item) => {
     const existingItems = JSON.parse(localStorage.getItem("meal")) || [];
@@ -22,12 +22,15 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
   const handleClick = () => {
     if (count >= 5) {
-      alert("You can only add up to 5 items to your order.");
-      return;
+      setVisible(true);
+    const timer = setTimeout(() => {
+        setVisible(false);
+      }, 1000);
+      return () => clearTimeout(timer);
     }
-    setShowAlert(true);
+    setVisible(true);
     setTimeout(() => {
-      setShowAlert(false);
+      setVisible(false);
     }, 1000);
 
     addLocalStorage(imageRef.current.alt);
@@ -36,13 +39,19 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
 
   return (
     <>
+      {visible && (
+        <Toast
+          message={`${mealName} added to order!`}
+          styling={"alert alert-success font-bold"}
+        />
+      )}
+      {count >= 5 && visible && (
+        <Toast
+          message={"5 items added to order. Cannot add more."}
+          styling="alert alert-warning font-bold"
+        />
+      )}
       <div className="card shadow-2xl bg-white/50 backdrop-blur-xs gap-2">
-        {showAlert && (
-          <Toast
-            message={`${mealName} added to order!`}
-            styling={"alert alert-success font-bold"}
-          />
-        )}
         <figure>
           <Image
             ref={imageRef}

@@ -1,9 +1,12 @@
 "use client"
+
 import MotionWrapper from '@/components/MotionWrapper';
 import Card from '@/components/Card'
+
 const LunchMenuPage = () => {
   return (
     <div className="flex flex-col p-4 gap-2">
+  
       <h1 className="font-bold text-center text-5xl rounded-lg font-stretch-50% p-1 bg-white/40 backdrop:blur-2xl w-fit self-center">
         Lunch Menu
       </h1>
