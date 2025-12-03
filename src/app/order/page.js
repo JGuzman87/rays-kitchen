@@ -28,7 +28,7 @@ const Order = () => {
 
     localStorage.removeItem("meal");
     setStoredMeal([]);
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   };
   const handleClick = () => {
     if (storedMeal.length === 0 || orderName.trim() === "") {
@@ -37,16 +37,20 @@ const Order = () => {
       );
       setToastStyle("alert alert-error font-bold");
       setVisible(true);
+      
       setTimeout(() => {
         setVisible(false);
+       
       }, 2000);
       return;
     }
     setToastMessage(`Thank you, ${orderName}! Your order has been submitted.`);
     setToastStyle("alert alert-success font-bold");
     setVisible(true);
+
     setTimeout(() => {
       setVisible(false);
+  
     }, 2000);
 
     removeItem();
@@ -56,10 +60,10 @@ const Order = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
     }, 800);
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
