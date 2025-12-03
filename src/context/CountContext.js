@@ -6,8 +6,7 @@ const CountContext = createContext();
 
 export function CountProvider({ children }) {
   const [count, setCount] = useState(0);
-
-
+  const [isLoading, setIsLoading] = useState(true);
 
   const addCount = () => {
     if (count < 5) {
@@ -16,13 +15,16 @@ export function CountProvider({ children }) {
     }
   };
 
-
-
   const removeItem = () => {
+    if (count === 0) return;
     localStorage.removeItem("meal");
     localStorage.removeItem("count");
-
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
     setCount(0);
+    return () => clearTimeout(timer);
   };
 
   useEffect(() => {
@@ -32,7 +34,9 @@ export function CountProvider({ children }) {
   }, []);
 
   return (
-    <CountContext.Provider value={{ count, addCount, removeItem }}>
+    <CountContext.Provider
+      value={{ count, addCount, removeItem, isLoading, setIsLoading }}
+    >
       {children}
     </CountContext.Provider>
   );

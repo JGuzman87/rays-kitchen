@@ -4,10 +4,10 @@ import { useCount } from "@/context/CountContext";
 import Toast from "@/components/Toast";
 
 const Order = () => {
-  const { count, removeItem } = useCount();
+  const { count, removeItem, isLoading,setIsLoading } = useCount();
 
   const [storedMeal, setStoredMeal] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+ 
   const [orderName, setOrderName] = useState("");
   const [visible, setVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
@@ -19,13 +19,9 @@ const Order = () => {
   }, [count]);
 
   const handleRemove = () => {
-    if (storedMeal.length === 0) return;
+
     removeItem();
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-    return () => clearTimeout(timer);
+    
   };
   const handleClick = () => {
     if (storedMeal.length === 0 || orderName.trim() === "") {

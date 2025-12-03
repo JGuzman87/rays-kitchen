@@ -5,7 +5,6 @@ import Image from "next/image";
 import Toast from "./Toast";
 
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
-
   const { addCount, count } = useCount();
 
   const imageRef = useRef(null);
@@ -13,21 +12,16 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   const [showAlert, setShowAlert] = useState(false);
 
   const addLocalStorage = (item) => {
-
-  const existingItems =  JSON.parse(localStorage.getItem("meal")) || [];
-  const itemWithPrice = [...existingItems, {name: item, price: price}];
-   const newItem = [...itemWithPrice];
-   if(newItem.length <= 5) {
-
-     localStorage.setItem('meal', JSON.stringify(newItem))
-   }
-  
-
-  }
+    const existingItems = JSON.parse(localStorage.getItem("meal")) || [];
+    const itemWithPrice = [...existingItems, { name: item, price: price }];
+    const newItem = [...itemWithPrice];
+    if (newItem.length <= 5) {
+      localStorage.setItem("meal", JSON.stringify(newItem));
+    }
+  };
 
   const handleClick = () => {
-
-    if(count >=5 ) {
+    if (count >= 5) {
       alert("You can only add up to 5 items to your order.");
       return;
     }
@@ -35,7 +29,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
     setTimeout(() => {
       setShowAlert(false);
     }, 1000);
-  
+
     addLocalStorage(imageRef.current.alt);
     addCount();
   };
