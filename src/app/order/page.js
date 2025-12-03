@@ -66,19 +66,41 @@ const Order = () => {
         >
           {visible && <Toast message={toastMessage} styling={toastStyle} />}
           <div className="card-body">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+              className="text-white"
+            >
+              <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1V2H4z" />
+              <path d="M8 6h8" />
+              <path d="M8 10h8" />
+              <path d="M8 14h6" />
+            </svg>
             <h1 className="font-bold text-2xl text-white ">
               Review Your Order
             </h1>
 
             <ul className="text-2xl capitalize text-white font-bold ">
-              {storedMeal.length > 0
-                ? storedMeal.map((item, index) => (
-                    <li key={index}>
-                      <p>{item.name}</p>
-                      <p>${item.price}</p>
-                    </li>
-                  ))
-                : <p className="font-thin">No items selected. <br />Checkout our menus below!</p>}
+              {storedMeal.length > 0 ? (
+                storedMeal.map((item, index) => (
+                  <li key={index}>
+                    <p>{item.name}</p>
+                    <p>${item.price}</p>
+                  </li>
+                ))
+              ) : (
+                <p className="font-thin">
+                  No items selected. <br />
+                  Checkout our menus below!
+                </p>
+              )}
             </ul>
             {storedMeal.length === 0 && (
               <div className="flex gap-4 text-white">

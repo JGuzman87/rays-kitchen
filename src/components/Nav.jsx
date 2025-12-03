@@ -95,7 +95,9 @@ const Nav = () => {
       <div className="navbar-end mr-4">
         <div className="indicator">
           {count > 0 && (
-            <span className="indicator-item badge badge-secondary">{count}</span>
+            <span className="indicator-item badge badge-secondary">
+              {count}
+            </span>
           )}
           <button
             className="btn btn-ghost btn-circle"
@@ -116,6 +118,7 @@ const Nav = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.3 5.2a1 1 0 001 1.3h11.6a1 1 0 001-1.3L17 13M7 13h10m-5 8a1 1 0 110 2 1 1 0 010-2zm-4 0a1 1 0 110 2 1 1 0 010-2z"
               />
             </svg>
+          
           </button>
           <ul
             className="dropdown dropdown-left menu w-35 md:w-52 rounded-box bg-base-100 shadow-sm"
@@ -128,9 +131,13 @@ const Nav = () => {
             <li>
               <Link href={"/order"}>View orders</Link>
             </li>
-            {count > 0 && (<li>
-              <Link href={"#"} onClick={() => removeItem()}>Clear Cart</Link>
-            </li>)}
+            {count > 0 && (
+              <li>
+                <Link href={"#"} onClick={() => removeItem()}>
+                  Clear Cart
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
