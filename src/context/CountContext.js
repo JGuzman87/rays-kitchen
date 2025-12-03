@@ -29,6 +29,7 @@ export function CountProvider({ children }) {
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("count")) || 0;
     setStoredCount(saved);
+    setCount(saved);
   }, []);
 
   return (
