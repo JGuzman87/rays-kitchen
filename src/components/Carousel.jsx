@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Carousel = () => {
   return (
-    <div className="carousel carousel-center bg-neutral/80 backdrop-blur-xs rounded-box  space-x-1 p-4">
+    <div className="carousel carousel-center bg-black/50 backdrop-blur-xs rounded-box  space-x-1 p-4">
       <div className="carousel-item">
         <Image
           width={500}

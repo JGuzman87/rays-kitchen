@@ -6,9 +6,9 @@ import Link from "next/link";
 export default function Home() {
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       <MotionWrapper>
-        <div className="bg-black/50  flex flex-col gap-8 p-4 backdrop-blur-xs text-white bg-blend-overlay text-2xl font-stretch-75% rounded-2xl">
+        <div className="bg-black/50  flex flex-col gap-8 p-4 backdrop-blur-sm text-white  text-2xl font-stretch-75% rounded-2xl">
           <h2 className="text-2xl font-bold p-2 underline">
             Welcome to Ray's Kitchen
           </h2>
@@ -31,9 +31,10 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <Carousel />
+        <div className="p-2">
+          <Carousel />
+        </div>
       </MotionWrapper>
-      
     </div>
   );
 }
