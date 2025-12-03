@@ -38,7 +38,9 @@ const Nav = () => {
           >
             <li>
               <Link href={"/"}>Home</Link>
+              <p>Menus</p>
             </li>
+
             <li>
               <ul className="p-2">
                 <li>
