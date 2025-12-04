@@ -3,11 +3,11 @@ import { useCount } from "@/context/CountContext";
 import { useToast } from "@/context/ToastContext";
 import {  useRef } from "react";
 import Image from "next/image";
-import Toast from "./Toast";
+
 
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   const { addCount, count } = useCount();
-  const { setVisible, visible } = useToast();
+  const { setVisible, visible, itemAdd } = useToast();
 
   const imageRef = useRef(null);
 
@@ -21,36 +21,18 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   };
 
   const handleClick = () => {
-    if (count >= 5) {
-      setVisible(true);
-    const timer = setTimeout(() => {
-        setVisible(false);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-    setVisible(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 1000);
-
+   
+    itemAdd(mealName);
     addLocalStorage(imageRef.current.alt);
     addCount();
+    console.log(imageRef.current.alt, mealName);
+    
   };
 
   return (
     <>
-      {visible && (
-        <Toast
-          message={`${mealName} added to order!`}
-          styling={"alert alert-success font-bold"}
-        />
-      )}
-      {count >= 5 && visible && (
-        <Toast
-          message={"5 items added to order. Cannot add more."}
-          styling="alert alert-warning font-bold"
-        />
-      )}
+  
+
       <div className="card shadow-2xl bg-white/50 backdrop-blur-xs gap-2">
         <figure>
           <Image

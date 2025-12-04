@@ -1,6 +1,5 @@
-
 import { createContext, useContext, useState } from "react";
-
+import { useCount } from "./CountContext";
 const ToastContext = createContext();
 
 export function ToastProvider({ children }) {
@@ -8,6 +7,26 @@ export function ToastProvider({ children }) {
   const [toastStyle, setToastStyle] = useState("");
   const [visible, setVisible] = useState(false);
 
+  const { count } = useCount();
+
+  const itemAdd = (selectedItem) => {
+    if (count >= 5) {
+        setToastMessage("5 items added to order. Cannot add more.");
+        setToastStyle("alert alert-warning font-bold");
+        setVisible(true);
+        setTimeout(() => {
+          setVisible(false);
+        }, 2000);
+        return;
+    }
+    setToastMessage(`${selectedItem} added to order!`);
+    setToastStyle("alert alert-success font-bold");
+    setVisible(true);
+
+    setTimeout(() => {
+      setVisible(false);
+    }, 2000);
+  }
   const orderFail = () => {
     setToastMessage(
       "Cannot submit order. Please add items and provide your name."
@@ -40,6 +59,7 @@ export function ToastProvider({ children }) {
         toastStyle,
         orderFail,
         orderSuccess,
+        itemAdd,
       }}
     >
       {children}

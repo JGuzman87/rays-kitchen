@@ -1,11 +1,21 @@
-"use client"
-import MotionWrapper from '@/components/MotionWrapper';
-import Card from '@/components/Card'
+"use client";
+import MotionWrapper from "@/components/MotionWrapper";
+import Card from "@/components/Card";
+import { useCount } from "@/context/CountContext";
+import Toast from "@/components/Toast";
+import { useToast } from "@/context/ToastContext";
 
 const LunchMenuPage = () => {
+  const { visible, toastMessage, toastStyle } = useToast();
+  const { count } = useCount();
   return (
     <div className="flex flex-col p-4 gap-2">
-  
+      {visible && <Toast message={toastMessage} styling={toastStyle} />}
+      {count >= 5 && visible && (
+        <Toast message={toastMessage} styling={toastStyle} />
+      )}
+      {visible && <Toast message={toastMessage} styling={toastStyle} />}
+
       <h1 className="font-bold text-center text-5xl rounded-lg font-stretch-50% p-1 bg-white/40 backdrop:blur-2xl w-fit self-center">
         Lunch Menu
       </h1>
@@ -40,6 +50,6 @@ const LunchMenuPage = () => {
       </MotionWrapper>
     </div>
   );
-}
+};
 
 export default LunchMenuPage;
