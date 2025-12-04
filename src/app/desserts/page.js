@@ -1,14 +1,12 @@
 "use client";
-
 import { useToast } from "@/context/ToastContext";
-import { useCount } from "@/context/CountContext";
 import Toast from "@/components/Toast";
 import Card from "@/components/Card";
 import MotionWrapper from "@/components/MotionWrapper";
 
 const DessertMenuPage = () => {
   const { visible, toastMessage, toastStyle } = useToast();
-  const { count } = useCount();
+  
   return (
     <div className="flex flex-col p-4 gap-2">
       {visible && (
@@ -17,13 +15,6 @@ const DessertMenuPage = () => {
           styling={toastStyle}
         />
       )}
-      {count >= 5 && visible && (
-        <Toast
-          message={toastMessage}
-          styling={toastStyle}
-        />
-      )}
-      {visible && <Toast message={toastMessage} styling={toastStyle} />}
       <h1 className="font-bold text-center text-5xl  bg-white/40 rounded-lg p-1 font-stretch-50%  backdrop:blur-2xl w-fit self-center">
         Dessert Menu
       </h1>
