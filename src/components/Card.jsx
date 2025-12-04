@@ -1,13 +1,11 @@
-"use client";
 import { useCount } from "@/context/CountContext";
 import { useToast } from "@/context/ToastContext";
-import {  useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
-
 const Card = ({ mealName, imgUrl, price, imgAlt }) => {
-  const { addCount, count } = useCount();
-  const { setVisible, visible, itemAdd } = useToast();
+  const { addCount } = useCount();
+  const { itemAdd } = useToast();
 
   const imageRef = useRef(null);
 
@@ -21,18 +19,14 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
   };
 
   const handleClick = () => {
-   
     itemAdd(mealName);
     addLocalStorage(imageRef.current.alt);
     addCount();
     console.log(imageRef.current.alt, mealName);
-    
   };
 
   return (
     <>
-  
-
       <div className="card shadow-2xl bg-white/50 backdrop-blur-xs gap-2">
         <figure>
           <Image
@@ -51,7 +45,7 @@ const Card = ({ mealName, imgUrl, price, imgAlt }) => {
             <button
               type="button"
               className="btn btn-success"
-              onClick={() => handleClick(imageRef)}
+              onClick={() => handleClick()}
             >
               add to cart
             </button>

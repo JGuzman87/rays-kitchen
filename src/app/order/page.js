@@ -24,7 +24,7 @@ const Order = () => {
       orderFail();
       return;
     }
-    orderSuccess();
+    orderSuccess(orderName);
 
     removeItem();
 

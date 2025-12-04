@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useCount } from '@/context/CountContext';
 import Link from 'next/link';
 

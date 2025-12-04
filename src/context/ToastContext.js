@@ -40,8 +40,8 @@ export function ToastProvider({ children }) {
     return;
   };
 
-  const orderSuccess = () => {
-    setToastMessage("Your order has been submitted successfully.");
+  const orderSuccess = (person) => {
+    setToastMessage(`Thank you ${person} your order was placed successfully!`);
     setToastStyle("alert alert-success font-bold");
     setVisible(true);
 
